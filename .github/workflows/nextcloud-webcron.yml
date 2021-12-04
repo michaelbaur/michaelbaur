@@ -1,0 +1,13 @@
+name: Nextcloud Cron
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  job-cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -X "GET" "https://cloud.michaelbaur.de/cron.php"
